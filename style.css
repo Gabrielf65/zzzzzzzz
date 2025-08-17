@@ -1,9 +1,9 @@
 :root {
-  --bg1: #ff6f00;   /* Laranja da quadra */
-  --bg2: #f57c00;   /* Laranja mais claro */
+  --bg1: #0d47a1;  /* Azul escuro */
+  --bg2: #42a5f5;  /* Azul claro */
   --card: #ffffff;
   --text: #222;
-  --primary: #1976d2; /* Azul da bola */
+  --primary: #ffca28; /* Amarelo da bola */
   --secondary: #ffffff;
 }
 
@@ -31,13 +31,14 @@ body {
   overflow: hidden;
 }
 
-/* Textura quadra */
 .quiz-container::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: url('court_texture.jpg') repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('quadra_volei.jpg') repeat;
   opacity: 0.06;
   z-index: 0;
   pointer-events: none;
@@ -46,7 +47,7 @@ body {
 h1 {
   margin: 0 0 16px;
   text-align: center;
-  color: #1976d2; /* Azul bola */
+  color: var(--primary);
   font-size: 2rem;
   text-shadow: 1px 1px 2px #000;
   z-index: 1;
@@ -81,26 +82,29 @@ h1 {
 
 .opcao {
   border: 2px solid #fff;
-  background: linear-gradient(145deg, #ffe082, #fbc02d);
+  background: linear-gradient(145deg, #90caf9, #1e88e5);
   border-radius: 12px;
   padding: 14px 16px;
   text-align: center;
   cursor: pointer;
   font-weight: bold;
-  color: #000;
+  color: #fff;
   font-size: 16px;
   transition: all 0.2s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
 .opcao:hover {
   transform: scale(1.05) translateY(-2px);
-  background: linear-gradient(145deg, #fff59d, #f9a825);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  background: linear-gradient(145deg, #bbdefb, #1565c0);
 }
+
 .opcao.selecionada {
-  background: #1976d2;
-  color: #fff;
-  border-color: #0d47a1;
-  box-shadow: 0 0 15px #1976d2;
+  background: var(--primary);
+  color: #000;
+  border-color: #ffb300;
+  box-shadow: 0 0 15px var(--primary);
 }
 
 .actions {
@@ -108,12 +112,14 @@ h1 {
   gap: 12px;
   justify-content: center;
   margin-top: 20px;
+  z-index: 1;
+  position: relative;
 }
 
 button.primary {
-  background: #1976d2;
-  color: #fff;
-  border: 2px solid #0d47a1;
+  background: var(--primary);
+  color: #000;
+  border: 2px solid #ffb300;
   border-radius: 12px;
   padding: 14px 20px;
   font-size: 18px;
@@ -121,19 +127,21 @@ button.primary {
   cursor: pointer;
   transition: all 0.2s ease;
 }
+
 button.primary:hover:not([disabled]) {
-  background: #0d47a1;
+  background: #fbc02d;
   transform: scale(1.05);
 }
+
 button.primary[disabled] {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 button.secondary {
-  background: #fff;
-  color: #1976d2;
-  border: 2px solid #1976d2;
+  background: #ffffff;
+  color: #0d47a1;
+  border: 2px solid #0d47a1;
   border-radius: 12px;
   padding: 12px 18px;
   font-size: 16px;
@@ -141,8 +149,9 @@ button.secondary {
   cursor: pointer;
   transition: all 0.2s ease;
 }
+
 button.secondary:hover {
-  background: #bbdefb;
+  background: #e3f2fd;
 }
 
 .resultado {
@@ -150,27 +159,12 @@ button.secondary:hover {
   margin-top: 20px;
   padding: 22px;
   border-radius: 16px;
-  background: linear-gradient(145deg, #ffffff, #e3f2fd);
+  background: linear-gradient(145deg, #ffffff, #e0f7fa);
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  position: relative;
+  z-index: 1;
 }
-
-.badge {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 50px;
-  margin-bottom: 12px;
-  font-weight: bold;
-  font-size: 18px;
-  text-transform: uppercase;
-  border: 2px solid #000;
-}
-
-/* Cores dos jogadores */
-.giba { background:#ff7043; color:#fff; border-color:#d84315; }
-.bruninho { background:#42a5f5; color:#fff; border-color:#1e88e5; }
-.wallace { background:#66bb6a; color:#fff; border-color:#2e7d32; }
-.sheilla { background:#ab47bc; color:#fff; border-color:#6a1b9a; }
 
 .resultado img {
   max-width: 200px;
